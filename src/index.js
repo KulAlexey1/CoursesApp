@@ -1,8 +1,18 @@
 import React from "react";
 import { render } from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import App from "./components/App";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "jquery/dist/jquery.min.js";
 
-function App() {
-    return <h1>Courses App</h1>;
+function Index() {
+    return (
+        <Router>
+            <App />
+        </Router>
+    );
 }
 
-render(<App />, document.getElementById("app"));
+render(<Index />, document.getElementById("app"));
