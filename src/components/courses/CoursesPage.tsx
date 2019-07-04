@@ -1,5 +1,5 @@
-import React from "react";
-import createReactClass from "create-react-class";
+import * as React from "react";
+import * as createReactClass from "create-react-class";
 
 const CoursesPage = createReactClass({
     render() {

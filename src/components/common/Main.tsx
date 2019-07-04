@@ -1,10 +1,10 @@
-import React from "react";
+import * as React from "react";
 import { Switch, Route } from "react-router-dom";
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 import HomePage from "../home/HomePage";
 import CoursesPage from "../courses/CoursesPage";
-import AboutPage from "../about/AboutPage.js";
+import AboutPage from "../about/AboutPage";
 import PageNotFoundPage from "../errors/PageNotFoundPage";
 
 const Main = () => (

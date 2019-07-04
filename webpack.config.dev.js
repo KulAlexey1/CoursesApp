@@ -1,16 +1,21 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsConfigPathsPlugin = require("awesome-typescript-loader")
+    .TsConfigPathsPlugin;
 
 process.env.NODE_ENV = "development";
 
 module.exports = {
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
+    },
     mode: "development",
     target: "web",
-    devtool: "cheap-module-source-map",
-    entry: "./src/index.js",
+    devtool: "source-map",
+    entry: "./src/index.tsx",
     output: {
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "dist"),
         publicPath: "/",
         filename: "bundle.js"
     },
@@ -25,18 +30,30 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/index.html"
+        }),
+        new TsConfigPathsPlugin({
+            tsconfig: __dirname + "/tsconfig.json",
+            compiler: "typescript"
         })
     ],
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: ["babel-loader", "eslint-loader"]
+                use: ["awesome-typescript-loader"]
             },
             {
-                test: /(\.css)$/,
-                use: ["style-loader", "css-loader"]
+                test: /\.js$/,
+                use: ["source-map-loader"],
+                enforce: "pre"
+            },
+            {
+                test: /\.(scss|css)$/,
+                use: ["style-loader", "css-loader", "sass-loader"] // the order is from last to end
+                // css-loader takes all css files and converts it in string
+                // and then style-loader would take the output string generated
+                // by the above css-loader and put it inside the <style> tags in the index.html file
             },
             {
                 test: /\.(gif|svg|jpg|png)$/,
