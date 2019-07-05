@@ -1,8 +1,7 @@
-import { Authors } from "./../../types/author/Authors";
-import { Action } from "./Action";
+import * as AuthorActions from "../../types/redux/AuthorActions";
+import * as actionTypes from "./actionTypes";
+import { Authors } from "../../types/author/Authors";
 
-export type AuthorAction = LoadAuthorsSuccess;
-
-export interface LoadAuthorsSuccess extends Action {
-    authors: Authors;
+export function loadAuthors(authors: Authors): AuthorActions.LoadAuthors {
+    return { type: actionTypes.LOAD_AUTHORS_SUCCESS, authors };
 }

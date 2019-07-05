@@ -1,4 +1,6 @@
-export const initialState = {
+const initialState = {
     courses: {},
     authors: {}
 };
+
+export default initialState;

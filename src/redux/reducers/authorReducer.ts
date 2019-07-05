@@ -1,9 +1,9 @@
-import { AuthorAction } from "./../actions/authorActions";
-import { initialState } from "./initialState";
+import { AuthorAction } from "../../types/redux/AuthorActions";
+import initialState from "./initialState";
 import { Authors } from "./../../types/author/Authors";
 import * as actionTypes from "../actions/actionTypes";
 
-export function authorReducer(
+export default function authorReducer(
     state: Authors = initialState.authors,
     action: AuthorAction
 ): Authors {
@@ -14,5 +14,3 @@ export function authorReducer(
             return state;
     }
 }
-
-export default authorReducer;
