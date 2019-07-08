@@ -1,7 +1,7 @@
 import {
-    LoadCoursesSuccess,
     CreateCourseSuccess,
-    CourseAction
+    CourseAction,
+    LoadCoursesSuccess
 } from "../../types/redux/CourseActions";
 import { Courses } from "./../../types/course/Courses";
 import * as actionTypes from "../actions/actionTypes";
@@ -11,6 +11,7 @@ export default function courseReducer(
     state: Courses = initialState.courses,
     action: CourseAction
 ): Courses {
+    console.log(state);
     switch (action.type) {
         case actionTypes.LOAD_COURSES_SUCCESS:
             return (action as LoadCoursesSuccess).courses;

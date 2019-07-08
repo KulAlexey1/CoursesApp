@@ -10,6 +10,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "jquery/dist/jquery.min.js";
 
 function Index() {
+    //pass initialState here
     const store = configureStore();
 
     return (

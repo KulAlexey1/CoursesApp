@@ -1,4 +1,6 @@
-const initialState = {
+import { State } from "../../types/redux/State";
+
+const initialState: State = {
     courses: {},
     authors: {}
 };

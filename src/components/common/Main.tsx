@@ -10,14 +10,14 @@ import PageNotFoundPage from "../errors/PageNotFoundPage";
 const Main = () => (
     <main className="row">
         <LeftSidebar />
-        <article className="col-sm-6 col-md-8 bg-light">
+        <section className="col-sm-6 col-md-8 bg-light">
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/courses" component={CoursesPage} />
                 <Route path="/about" component={AboutPage} />
                 <Route component={PageNotFoundPage} />
             </Switch>
-        </article>
+        </section>
         <RightSidebar />
     </main>
 );
