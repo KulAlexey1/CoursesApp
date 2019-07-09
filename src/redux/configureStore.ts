@@ -1,10 +1,12 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose, Store } from "redux";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import rootReducer from "./reducers";
-import { State } from "../types/redux/State";
-import initState from "./reducers/initialState";
+import { IAppState } from "../shared/types/redux/IAppState";
+import initState from "./reducers/initialAppState";
 
-export default function configureStore(initialState: State = initState) {
+export default function configureStore(
+    initialState: IAppState = initState
+): Store<IAppState> {
     const composeEnhancers =
         (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 

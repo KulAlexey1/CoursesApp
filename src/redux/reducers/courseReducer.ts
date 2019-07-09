@@ -1,22 +1,22 @@
 import {
-    CreateCourseSuccess,
+    ICreateCourseSuccess,
     CourseAction,
-    LoadCoursesSuccess
-} from "../../types/redux/CourseActions";
-import { Courses } from "./../../types/course/Courses";
-import * as actionTypes from "../actions/actionTypes";
-import initialState from "./initialState";
+    ILoadCoursesSuccess
+} from "../../shared/types/redux/CourseActions";
+import { ICourses } from "../../shared/types/models/ICourses";
+import * as actionTypes from "../../resources/actionTypes";
+import initialAppState from "./initialAppState";
 
 export default function courseReducer(
-    state: Courses = initialState.courses,
+    state: ICourses = initialAppState.courses,
     action: CourseAction
-): Courses {
+): ICourses {
     console.log(state);
     switch (action.type) {
         case actionTypes.LOAD_COURSES_SUCCESS:
-            return (action as LoadCoursesSuccess).courses;
+            return (action as ILoadCoursesSuccess).courses;
         case actionTypes.CREATE_COURSE_SUCCESS:
-            const course = (action as CreateCourseSuccess).course;
+            const course = (action as ICreateCourseSuccess).course;
             return { ...state, [course.id]: course };
         default:
             return state;

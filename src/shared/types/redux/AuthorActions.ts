@@ -1,0 +1,15 @@
+import { Action } from "redux";
+import { IAuthors } from "../models/IAuthors";
+import * as actionTypes from "../../../resources/actionTypes";
+
+export interface ILoadAuthorsSuccess
+    extends Action<typeof actionTypes.LOAD_AUTHORS_SUCCESS> {
+    authors: IAuthors;
+}
+
+export interface ILoadAuthorsFailed
+    extends Action<typeof actionTypes.LOAD_AUTHORS_FAILED> {}
+
+export type LoadAuthors = ILoadAuthorsSuccess | ILoadAuthorsFailed;
+
+export type AuthorAction = LoadAuthors;

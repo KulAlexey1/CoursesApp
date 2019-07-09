@@ -1,6 +1,6 @@
-import { GuidId } from "./../shared/GuidId";
+import { IGuidId } from "./IGuidId";
 
-export interface Author extends GuidId {
+export interface IAuthor extends IGuidId {
     firstName: string;
     middleName: string;
     lastName: string;
