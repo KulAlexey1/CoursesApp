@@ -10,7 +10,7 @@ const CourseList: React.FC<Props> = props => {
     return (
         <section>
             {props.courses.map((course: ICourse) => (
-                <article id={course.id}>
+                <article key={course.id} id={course.id}>
                     <header>
                         {course.name} {course.author.fullName}
                     </header>
