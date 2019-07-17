@@ -1,5 +1,3 @@
 import { ICourse } from "./ICourse";
 
-export interface ICourses {
-    [index: string]: ICourse;
-}
+export interface ICourses extends Array<ICourse> {}

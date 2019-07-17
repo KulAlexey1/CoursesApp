@@ -3,8 +3,8 @@ import {
     ILoadAuthorsSuccess
 } from "../../shared/types/redux/AuthorActions";
 import initialAppState from "./initialAppState";
-import { IAuthors } from "../../shared/types/models/IAuthors";
 import * as actionTypes from "../../resources/actionTypes";
+import { IAuthors } from "../../shared/types/models/IAuthors";
 
 export default function authorReducer(
     state: IAuthors = initialAppState.authors,

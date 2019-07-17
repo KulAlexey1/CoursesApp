@@ -3,11 +3,16 @@ import { connect } from "react-redux";
 import * as courseActions from "../../redux/actions/courseActions";
 import * as authorActions from "../../redux/actions/authorActions";
 import { IAppState } from "../../shared/types/redux/IAppState";
-import { ICourse } from "../../shared/types/models/ICourse";
+import CourseList from "./CourseList";
+import { getAllCourses } from "../../shared/selectors/courseSelectors";
+import { getAllAuthors } from "../../shared/selectors/authorSelectors";
 
 type StateToProps = ReturnType<typeof mapStateToProps>;
 function mapStateToProps(state: IAppState) {
-    return { ...state };
+    return {
+        courses: getAllCourses(state),
+        authors: getAllAuthors(state)
+    };
 }
 
 type DispatchToProps = typeof mapDispatchToProps;
@@ -35,23 +40,15 @@ const CoursesPage: React.FC<Props> = props => {
         });
     };
 
-    const articles: JSX.Element[] = [];
-    for (let courseId in props.courses) {
-        articles.push(
-            <article id={courseId}>
-                <header>{(props.courses[courseId] as any).name}</header>
-                <p>TEST</p>
-            </article>
-        );
-    }
-
     return (
         <section>
             <header>Courses</header>
-            <a href="#" onClick={createCourse}>
-                Create course
-            </a>
-            {articles}
+            <section>
+                <a href="#" onClick={createCourse}>
+                    Create course
+                </a>
+            </section>
+            <CourseList courses={props.courses} />
         </section>
     );
 };

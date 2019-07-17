@@ -1,7 +1,7 @@
 import { Action } from "redux";
 import { ICourse } from "../models/ICourse";
-import { ICourses } from "../models/ICourses";
 import * as actionTypes from "../../../resources/actionTypes";
+import { ICourses } from "../models/ICourses";
 
 export interface ILoadCoursesSuccess
     extends Action<typeof actionTypes.LOAD_COURSES_SUCCESS> {

@@ -17,7 +17,7 @@ export default function courseReducer(
             return (action as ILoadCoursesSuccess).courses;
         case actionTypes.CREATE_COURSE_SUCCESS:
             const course = (action as ICreateCourseSuccess).course;
-            return { ...state, [course.id]: course };
+            return [...state, course];
         default:
             return state;
     }
