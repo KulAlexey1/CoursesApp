@@ -7,7 +7,6 @@ import App from "./components/App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.scss";
 import "bootstrap/dist/js/bootstrap.min.js";
-import "jquery/dist/jquery.min.js";
 
 function Index() {
     //pass initialState here

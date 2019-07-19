@@ -14,11 +14,6 @@ module.exports = {
     target: "web",
     devtool: "source-map",
     entry: "./src/index.tsx",
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        publicPath: "/",
-        filename: "bundle.js"
-    },
     devServer: {
         stats: "minimal",
         overlay: true,
@@ -32,7 +27,7 @@ module.exports = {
             template: "src/index.html"
         }),
         new TsConfigPathsPlugin({
-            tsconfig: __dirname + "/tsconfig.json",
+            configFileName: "./tsconfig.json",
             compiler: "typescript"
         })
     ],
@@ -40,7 +35,6 @@ module.exports = {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
-                exclude: /node_modules/,
                 use: ["awesome-typescript-loader"]
             },
             {
@@ -56,7 +50,7 @@ module.exports = {
                 // by the above css-loader and put it inside the <style> tags in the index.html file
             },
             {
-                test: /\.(gif|svg|jpg|png)$/,
+                test: /\.(gif|svg|jpg|png|ico)$/,
                 loader: "file-loader"
             }
         ]
