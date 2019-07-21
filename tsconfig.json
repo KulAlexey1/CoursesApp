@@ -16,6 +16,8 @@
         "module": "esnext",
         "moduleResolution": "node", // Tell tsc to look in node_modules for modules
         "lib": ["es2015", "dom"],
+        "types": ["node", "lodash", "mocha"],
+        "typeRoots": ["./node_modules/@types"],
         "target": "es5",
         "jsx": "react",
         "strict": true, // Strict types, eg. prohibits `var x=0; x=null`

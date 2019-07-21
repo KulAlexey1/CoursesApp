@@ -8,7 +8,8 @@ process.env.NODE_ENV = "development";
 
 module.exports = {
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx"]
+        extensions: [".ts", ".tsx", ".js", ".jsx"],
+        plugins: [new TsConfigPathsPlugin()]
     },
     mode: "development",
     target: "web",
@@ -25,10 +26,6 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/index.html"
-        }),
-        new TsConfigPathsPlugin({
-            configFileName: "./tsconfig.json",
-            compiler: "typescript"
         })
     ],
     module: {
