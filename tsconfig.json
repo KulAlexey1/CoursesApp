@@ -5,10 +5,9 @@
         "paths": {
             "@app": ["index.tsx"],
             "@app/*": ["./*"],
-            "@components": ["components"],
             "@components/*": ["components/*"],
-            "@redux": ["redux"],
-            "@shared": ["shared"]
+            "@resources/*": ["resources/*"],
+            "@shared/*": ["shared/*"]
         },
         "outDir": "./dist/",
         "sourceMap": true,

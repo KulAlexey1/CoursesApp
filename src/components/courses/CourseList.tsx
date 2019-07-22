@@ -1,6 +1,6 @@
 import * as React from "react";
-import { ICourses } from "../../shared/types/models/ICourses";
-import { ICourse } from "../../shared/types/models/ICourse";
+import { ICourses } from "@shared/types/models/ICourses";
+import { ICourse } from "@shared/types/models/ICourse";
 
 type Props = {
     courses: ICourses;
