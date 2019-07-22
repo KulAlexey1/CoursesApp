@@ -16,13 +16,13 @@
         "module": "esnext",
         "moduleResolution": "node", // Tell tsc to look in node_modules for modules
         "lib": ["es2015", "dom"],
-        "types": ["node", "lodash", "mocha"],
-        "typeRoots": ["./node_modules/@types"],
+        "types": ["node", "lodash", "mocha", "./src"],
+        "typeRoots": ["./node_modules/@types", "./src"],
         "target": "es5",
         "jsx": "react",
         "strict": true, // Strict types, eg. prohibits `var x=0; x=null`
         "alwaysStrict": true, // Enable JavaScript's "use strict" mode
         "watch": true
     },
-    "exclude": ["./node_modules", "/index.d.ts", "/resources/images"]
+    "exclude": ["./node_modules", "/resources/images"]
 }
