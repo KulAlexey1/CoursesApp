@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Switch, Route } from "react-router-dom";
-import LeftSidebar from "./LeftSidebar";
-import RightSidebar from "./RightSidebar";
-import HomePage from "../home/HomePage";
-import CoursesPage from "../courses/CoursesPage";
-import AboutPage from "../about/AboutPage";
-import PageNotFoundPage from "../errors/PageNotFoundPage";
+import LeftSidebar from "@components/common/LeftSidebar";
+import RightSidebar from "@components/common/RightSidebar";
+import HomePage from "@components/home/HomePage";
+import CoursesPage from "@components/courses/CoursesPage";
+import AboutPage from "@components/about/AboutPage";
+import PageNotFoundPage from "@components/errors/PageNotFoundPage";
 
 const Main = () => (
     <main className="row">

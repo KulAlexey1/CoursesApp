@@ -1,5 +1,5 @@
 import * as React from "react";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap";
 
 const PageNotFoundPage = () => (
     <div className="row align-items-center text-center">

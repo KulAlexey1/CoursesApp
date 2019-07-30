@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose, Store } from "redux";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
-import rootReducer from "./reducers";
-import { IAppState } from "../shared/types/redux/IAppState";
-import initState from "./reducers/initialAppState";
+import rootReducer from "@redux/reducers";
+import { IAppState } from "@shared/types/redux/IAppState";
+import initState from "@redux/reducers/initialAppState";
 
 export default function configureStore(
     initialState: IAppState = initState

@@ -2,11 +2,9 @@ import * as React from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import configureStore from "./redux/configureStore";
-import App from "./components/App";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.scss";
-import "bootstrap/dist/js/bootstrap.min.js";
+import configureStore from "@redux/configureStore";
+import App from "@components/App";
+import "@styles/main.scss";
 
 function Index() {
     //pass initialState here

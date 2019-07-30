@@ -1,4 +1,4 @@
-import { IAppState } from "../../shared/types/redux/IAppState";
+import { IAppState } from "@shared/types/redux/IAppState";
 
 const initialAppState: IAppState = {
     courses: [],

@@ -1,16 +1,18 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": ".",
         "paths": {
-            "@app": ["index.tsx"],
-            "@app/*": ["./*"],
-            "@components": ["components"],
-            "@components/*": ["components/*"],
-            "@redux": ["redux"],
-            "@shared": ["shared"]
+            "@app": ["src/index.tsx"],
+            "@app/*": ["/*"],
+            "@components/*": ["src/components/*"],
+            "@styles/*": ["src/styles/*"],
+            "@redux/*": ["src/redux/*"],
+            "@resources/*": ["src/resources/*"],
+            "@shared/*": ["src/shared/*"]
         },
-        "outDir": "./dist/",
+        "outDir": "/dist/",
+        "allowSyntheticDefaultImports": true,
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "esnext",
