@@ -8,7 +8,7 @@ process.env.NODE_ENV = "development";
 
 module.exports = {
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx"],
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".scss", ".css"],
         plugins: [new TsConfigPathsPlugin()]
     },
     mode: "development",

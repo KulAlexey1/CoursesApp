@@ -1,11 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import * as courseActions from "../../redux/actions/courseActions";
-import * as authorActions from "../../redux/actions/authorActions";
-import { IAppState } from "../../shared/types/redux/IAppState";
-import CourseList from "./CourseList";
-import { getAllCourses } from "../../shared/selectors/courseSelectors";
-import { getAllAuthors } from "../../shared/selectors/authorSelectors";
+import * as courseActions from "@redux/actions/courseActions";
+import * as authorActions from "@redux/actions/authorActions";
+import { IAppState } from "@shared/types/redux/IAppState";
+import CourseList from "@components/courses/CourseList";
+import { getAllCourses } from "@shared/selectors/courseSelectors";
+import { getAllAuthors } from "@shared/selectors/authorSelectors";
 
 type StateToProps = ReturnType<typeof mapStateToProps>;
 function mapStateToProps(state: IAppState) {

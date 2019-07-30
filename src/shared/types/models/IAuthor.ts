@@ -1,4 +1,4 @@
-import { IGuidId } from "./IGuidId";
+import { IGuidId } from "@shared/types/models/IGuidId";
 
 export interface IAuthor extends IGuidId {
     firstName: string;

@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { IAppState } from "../types/redux/IAppState";
+import { IAppState } from "@shared/types/redux/IAppState";
 
 const selector = (state: IAppState) => state.authors;
 

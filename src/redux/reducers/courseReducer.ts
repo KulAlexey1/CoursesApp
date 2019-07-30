@@ -2,10 +2,10 @@ import {
     ICreateCourseSuccess,
     CourseAction,
     ILoadCoursesSuccess
-} from "../../shared/types/redux/CourseActions";
-import { ICourses } from "../../shared/types/models/ICourses";
-import * as actionTypes from "../../resources/actionTypes";
-import initialAppState from "./initialAppState";
+} from "@shared/types/redux/CourseActions";
+import { ICourses } from "@shared/types/models/ICourses";
+import * as actionTypes from "@resources/actionTypes";
+import initialAppState from "@redux/reducers/initialAppState";
 
 export default function courseReducer(
     state: ICourses = initialAppState.courses,
