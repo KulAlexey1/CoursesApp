@@ -1,11 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import * as courseActions from "@redux/actions/courseActions";
-import * as authorActions from "@redux/actions/authorActions";
+import { loadCoursesAsync } from "@redux/actions/courseActions";
 import { IAppState } from "@shared/types/redux/IAppState";
 import CourseList from "@components/courses/CourseList";
 import { getAllCourses } from "@shared/selectors/courseSelectors";
 import { getAllAuthors } from "@shared/selectors/authorSelectors";
+import { ThunkDispatch } from "redux-thunk";
+import { ExtraArgument } from "@shared/types/redux/ThunkTypes";
+import AppAction from "@shared/types/redux/actions";
+import { bindActionCreators } from "redux";
 
 type StateToProps = ReturnType<typeof mapStateToProps>;
 function mapStateToProps(state: IAppState) {
@@ -15,11 +18,12 @@ function mapStateToProps(state: IAppState) {
     };
 }
 
-type DispatchToProps = typeof mapDispatchToProps;
-const mapDispatchToProps = {
-    ...courseActions,
-    ...authorActions
-};
+type DispatchToProps = ReturnType<typeof mapDispatchToProps>;
+function mapDispatchToProps(
+    dispatch: ThunkDispatch<IAppState, ExtraArgument, AppAction>
+) {
+    return { loadCoursesAsync: bindActionCreators(loadCoursesAsync, dispatch) };
+}
 
 type Props = StateToProps & DispatchToProps;
 
@@ -27,18 +31,24 @@ const CoursesPage: React.FC<Props> = props => {
     const createCourse = (
         event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
     ) => {
-        props.createCourse({
-            id: "testid",
-            name: "testname",
-            author: {
-                id: "authorTestId",
-                firstName: "testFirstName",
-                middleName: "testMiddleName",
-                lastName: "testLastName",
-                fullName: "testFullName"
-            }
-        });
+        // props.createCourse({
+        //     id: "testid",
+        //     name: "testname",
+        //     author: {
+        //         id: "authorTestId",
+        //         firstName: "testFirstName",
+        //         middleName: "testMiddleName",
+        //         lastName: "testLastName",
+        //         fullName: "testFullName"
+        //     }
+        // });
     };
+
+    React.useEffect(() => {
+        if (props.courses && props.courses.length == 0) {
+            props.loadCoursesAsync();
+        }
+    }, []);
 
     return (
         <section>

@@ -1,7 +1,7 @@
 import {
     AuthorAction,
     ILoadAuthorsSuccess
-} from "@shared/types/redux/AuthorActions";
+} from "@shared/types/redux/actions/AuthorActions";
 import initialAppState from "@redux/reducers/initialAppState";
 import * as actionTypes from "@resources/actionTypes";
 import { IAuthors } from "@shared/types/models/IAuthors";

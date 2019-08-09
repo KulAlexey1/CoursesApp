@@ -5,3 +5,5 @@ export interface IAppState {
     readonly courses: ICourses;
     readonly authors: IAuthors;
 }
+
+export type GetAppState = () => IAppState;

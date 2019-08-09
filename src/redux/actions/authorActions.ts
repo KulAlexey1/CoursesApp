@@ -1,4 +1,4 @@
-import * as AuthorActions from "@shared/types/redux/AuthorActions";
+import * as AuthorActions from "@shared/types/redux/actions/AuthorActions";
 import * as actionTypes from "@resources/actionTypes";
 import { IAuthors } from "@shared/types/models/IAuthors";
 

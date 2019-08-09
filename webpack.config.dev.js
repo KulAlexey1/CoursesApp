@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TsConfigPathsPlugin = require("awesome-typescript-loader")
     .TsConfigPathsPlugin;
 
-process.env.NODE_ENV = "development";
-
 module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".scss", ".css"],
@@ -24,6 +22,10 @@ module.exports = {
         https: false
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify("development"),
+            "process.env.API_URL": JSON.stringify("http://localhost:3001")
+        }),
         new HtmlWebpackPlugin({
             template: "src/index.html"
         })

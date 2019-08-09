@@ -2,7 +2,7 @@ import {
     ICreateCourseSuccess,
     CourseAction,
     ILoadCoursesSuccess
-} from "@shared/types/redux/CourseActions";
+} from "@shared/types/redux/actions/CourseActions";
 import { ICourses } from "@shared/types/models/ICourses";
 import * as actionTypes from "@resources/actionTypes";
 import initialAppState from "@redux/reducers/initialAppState";

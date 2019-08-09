@@ -8,16 +8,24 @@ type Props = {
 
 const CourseList: React.FC<Props> = props => {
     return (
-        <section>
-            {props.courses.map((course: ICourse) => (
-                <article key={course.id} id={course.id}>
-                    <header>
-                        {course.name} {course.author.fullName}
-                    </header>
-                    <p>text</p>
-                </article>
-            ))}
-        </section>
+        <table>
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Category</td>
+                    <td>Author</td>
+                </tr>
+            </thead>
+            <tbody>
+                {props.courses.map((course: ICourse) => (
+                    <tr key={course.id} id={course.id.toString()}>
+                        <td>{course.title}</td>
+                        <td>{course.category}</td>
+                        <td>{course.authorId}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
     );
 };
 

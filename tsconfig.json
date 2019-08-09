@@ -8,6 +8,8 @@
             "@components/*": ["src/components/*"],
             "@styles/*": ["src/styles/*"],
             "@redux/*": ["src/redux/*"],
+            "@api/*": ["src/api/*"],
+            "@tools/*": ["tools/*"],
             "@resources/*": ["src/resources/*"],
             "@shared/*": ["src/shared/*"]
         },
