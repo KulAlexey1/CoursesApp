@@ -5,5 +5,6 @@ export interface ICourse {
     title: string;
     slug: string;
     authorId: number;
+    author: IAuthor;
     category: string;
 }
