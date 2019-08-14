@@ -28,7 +28,7 @@ export function api<R, D>(
             return response.json() as Promise<R>;
         })
         .catch((err: Error) => {
-            console.log("error :", err.stack);
+            console.log("error :", err);
 
             return Promise.reject(err);
         });

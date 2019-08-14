@@ -1,14 +1,14 @@
 import { api } from "./apiUtils";
 import { ICourses } from "@shared/types/models/ICourses";
 import HTTPMethod from "http-method-enum";
-import { ICourse } from "@shared/types/models/ICourse";
+import { ICourse, CourseId } from "@shared/types/models/ICourse";
 
 export function getCourses(): Promise<ICourses> {
     return api(process.env.API_URL + "/courses");
 }
 
-export function getCourse(slug: string): Promise<ICourse> {
-    return api(process.env.API_URL + "/courses/" + slug);
+export function getCourse(id: CourseId): Promise<ICourse> {
+    return api(process.env.API_URL + "/courses/" + id);
 }
 
 export function addCourse(course: ICourse) {
@@ -23,6 +23,6 @@ export function updateCourse(course: ICourse) {
     );
 }
 
-export function removeCourse(slug: string) {
-    return api(process.env.API_URL + "/courses/" + slug, HTTPMethod.DELETE);
+export function removeCourse(id: CourseId) {
+    return api(process.env.API_URL + "/courses/" + id, HTTPMethod.DELETE);
 }

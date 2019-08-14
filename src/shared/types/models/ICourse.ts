@@ -1,7 +1,9 @@
 import { IAuthor } from "@shared/types/models/IAuthor";
 
+export type CourseId = number;
+
 export interface ICourse {
-    id: number;
+    id: CourseId;
     title: string;
     slug: string;
     authorId: number;
