@@ -8,14 +8,14 @@ type Props = {
 
 const CourseInfo: React.FC<Props> = ({ course }) => {
     return (
-        <article id={course.slug}>
+        <article id={"course-" + course.id.toString()}>
             <header>
                 <h1>{course.title}</h1>
                 <h2>{course.category}</h2>
+                <h2 id={"courseAuthor-" + course.authorId}>
+                    {course.author.name}
+                </h2>
             </header>
-            <main>
-                <p>{course.authorId}</p>
-            </main>
             <footer>
                 <NavLink to="/courses" className="nav-link">
                     Back to All

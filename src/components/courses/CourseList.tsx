@@ -21,7 +21,7 @@ const CourseList: React.FC<Props> = props => {
                     <tr key={course.id} id={course.id.toString()}>
                         <td>{course.title}</td>
                         <td>{course.category}</td>
-                        <td>{course.authorId}</td>
+                        <td>{course.author.name}</td>
                     </tr>
                 ))}
             </tbody>

@@ -1,9 +1,9 @@
 import { createSelector } from "reselect";
 import { IAppState } from "@shared/types/redux/IAppState";
 
-const selector = (state: IAppState) => state.authors;
+const authorsSelector = (state: IAppState) => state.authors;
 
-export const getAllAuthors = createSelector(
-    selector,
+export const getAuthors = createSelector(
+    authorsSelector,
     authors => authors
 );
