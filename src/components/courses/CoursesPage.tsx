@@ -9,6 +9,9 @@ import { ExtraArgument } from "@shared/types/redux/ThunkTypes";
 import AppAction from "@shared/types/redux/actions";
 import { bindActionCreators } from "redux";
 import { loadAuthorsAsync } from "@redux/actions/authorActions";
+import { Switch, Route } from "react-router";
+import CourseInfo from "./CourseInfo";
+import { NavLink } from "react-router-dom";
 
 type StateToProps = ReturnType<typeof mapStateToProps>;
 function mapStateToProps(state: IAppState) {
@@ -56,10 +59,14 @@ const CoursesPage: React.FC<Props> = props => {
     return (
         <section>
             <header>Courses</header>
+
             <section>
-                <a href="#" onClick={createCourse}>
+                <NavLink to="/courses/create" className="nav-link">
                     Create course
-                </a>
+                </NavLink>
+                <NavLink to="/courses/delete" className="nav-link">
+                    Delete course
+                </NavLink>
             </section>
             <CourseList courses={props.courses} />
         </section>

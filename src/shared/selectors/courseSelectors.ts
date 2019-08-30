@@ -17,7 +17,7 @@ export const getCoursesWithAuthors = createSelector(
     (courses, authors) =>
         courses.map(function(course) {
             course.author = authors.find(
-                author => author.id === course.id
+                author => author.id === course.authorId
             ) as IAuthor;
 
             return course;
