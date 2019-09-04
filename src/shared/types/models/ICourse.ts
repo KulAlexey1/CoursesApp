@@ -7,6 +7,6 @@ export interface ICourse {
     title: string;
     slug: string;
     authorId: number;
-    author: IAuthor;
+    author?: IAuthor;
     category: string;
 }
