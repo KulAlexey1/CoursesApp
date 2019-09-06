@@ -11,13 +11,13 @@ export function getCourse(id: CourseId): Promise<ICourse> {
     return api(process.env.API_URL + "/courses/" + id);
 }
 
-export function addCourse(course: ICourse) {
+export function addCourse(course: ICourse): Promise<ICourse> {
     return api(process.env.API_URL + "/courses/", HTTPMethod.POST, course);
 }
 
-export function updateCourse(course: ICourse) {
+export function updateCourse(course: ICourse): Promise<ICourse> {
     return api(
-        process.env.API_URL + "/courses/" + course.slug,
+        process.env.API_URL + "/courses/" + course.id,
         HTTPMethod.PUT,
         course
     );

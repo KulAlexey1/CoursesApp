@@ -62,21 +62,6 @@ export function createCourseFailed(): CourseActions.ICreateCourseFailed {
     return { type: actionTypes.CREATE_COURSE_FAILED };
 }
 
-export function createCourseAsync(
-    course: ICourse
-): ThunkAction<void, IAppState, ExtraArgument, CourseActions.CreateCourse> {
-    return function(dispatch, getState, extraArgument) {
-        addCourse(course)
-            .then(function(response) {
-                console.log("ADD COURSE " + response);
-                dispatch(createCourseSuccess(course));
-            })
-            .catch(function(err: Error) {
-                dispatch(createCourseFailed());
-            });
-    };
-}
-
 export function editCourseSuccess(
     course: ICourse
 ): CourseActions.IEditCourseSuccess {
@@ -87,18 +72,34 @@ export function editCourseFailed(): CourseActions.IEditCourseFailed {
     return { type: actionTypes.EDIT_COURSE_FAILED };
 }
 
-export function editCourseAsync(
+export function saveCourseAsync(
     course: ICourse
-): ThunkAction<void, IAppState, ExtraArgument, CourseActions.EditCourse> {
+): ThunkAction<
+    Promise<void>,
+    IAppState,
+    ExtraArgument,
+    CourseActions.CreateCourse | CourseActions.EditCourse
+> {
     return function(dispatch, getState, extraArgument) {
-        updateCourse(course)
-            .then(function(response) {
-                console.log("UPDATE COURSE " + response);
-                dispatch(editCourseSuccess(course));
-            })
-            .catch(function(err) {
-                dispatch(editCourseFailed());
-            });
+        if (!course.id) {
+            return addCourse(course)
+                .then(function(response) {
+                    console.log("ADD COURSE " + response);
+                    dispatch(createCourseSuccess(course));
+                })
+                .catch(function(err: Error) {
+                    dispatch(createCourseFailed());
+                });
+        } else {
+            return updateCourse(course)
+                .then(function(response) {
+                    console.log("UPDATE COURSE " + response);
+                    dispatch(editCourseSuccess(course));
+                })
+                .catch(function(err) {
+                    dispatch(editCourseFailed());
+                });
+        }
     };
 }
 

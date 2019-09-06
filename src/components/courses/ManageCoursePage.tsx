@@ -2,8 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import {
     loadCoursesAsync,
-    createCourseAsync,
-    editCourseAsync,
+    saveCourseAsync,
     deleteCourseAsync
 } from "@redux/actions/courseActions";
 import { IAppState } from "@shared/types/redux/IAppState";
@@ -48,8 +47,8 @@ function mapDispatchToProps(
     return {
         loadCoursesAsync: bindActionCreators(loadCoursesAsync, dispatch),
         loadAuthorsAsync: bindActionCreators(loadAuthorsAsync, dispatch),
-        createCourseAsync: bindActionCreators(createCourseAsync, dispatch),
-        editCourseAsync: bindActionCreators(editCourseAsync, dispatch),
+        saveCourseAsync: bindActionCreators(saveCourseAsync, dispatch),
+        // see https://medium.com/@d.maklygin/redux-typescript-reuse-the-type-of-an-action-creators-return-value-91663a48858f
         deleteCourseAsync: bindActionCreators(deleteCourseAsync, dispatch)
     };
 }
@@ -72,23 +71,18 @@ const ManageCoursePage: React.FC<Props> = props => {
 
     function onSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        if (!course.id) {
-            props.createCourseAsync(course);
-        } else {
-            props.editCourseAsync(course);
-        }
+        props.saveCourseAsync(course);
     }
 
     function onChange(
         event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
     ) {
-        const [name, value] = [event.target.name, event.target.value];
-        const newCourse = {
-            ...course,
-            [name]: name === "authorId" ? parseInt(value) : value
-        };
+        const { name, value } = event.target;
 
-        setCourse(newCourse);
+        setCourse(prevCourse => ({
+            ...prevCourse,
+            [name]: name === "authorId" ? parseInt(value, 10) : value
+        }));
     }
 
     return (

@@ -5,7 +5,11 @@
       "title": "Securing React Apps with Auth0",
       "slug": "react-auth0-authentication-security",
       "authorId": 1,
-      "category": "JavaScript"
+      "category": "JavaScript",
+      "author": {
+        "id": 3,
+        "name": "Dan Wahlin"
+      }
     },
     {
       "id": 2,
@@ -69,6 +73,30 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
+    },
+    {
+      "id": 11,
+      "title": "qweqe",
+      "slug": "qweqe",
+      "authorId": 1,
+      "category": "qweq",
+      "createdAt": 1567775796154
+    },
+    {
+      "id": 12,
+      "title": "qweq",
+      "slug": "qweq",
+      "authorId": 1,
+      "category": "qeqe",
+      "createdAt": 1567776466028
+    },
+    {
+      "id": 13,
+      "title": "qweq",
+      "slug": "qweq",
+      "authorId": 1,
+      "category": "qeqe",
+      "createdAt": 1567776504198
     }
   ],
   "authors": [

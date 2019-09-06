@@ -9,7 +9,7 @@ import AppAction from "@shared/types/redux/actions";
 import { bindActionCreators } from "redux";
 import { loadAuthorsAsync } from "@redux/actions/authorActions";
 import { ICourse } from "@shared/types/models/ICourse";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 type StateToProps = ReturnType<typeof mapStateToProps>;
 function mapStateToProps(state: IAppState) {
@@ -31,6 +31,10 @@ function mapDispatchToProps(
 type Props = StateToProps & DispatchToProps;
 
 const CoursesPage: React.FC<Props> = props => {
+    const [state, setState] = React.useState({
+        redirectToAddCoursePage: false
+    });
+
     React.useEffect(() => {
         if (!props.courses || props.courses.length == 0) {
             props.loadCoursesAsync();
@@ -39,8 +43,19 @@ const CoursesPage: React.FC<Props> = props => {
     }, []);
 
     return (
-        <section>
+        <>
+            {state.redirectToAddCoursePage && <Redirect to="/course" />}
             <header>Courses</header>
+
+            <section>
+                <button
+                    style={{ marginBottom: 20 }}
+                    className="btn btn-primary add-course"
+                    onClick={() => setState({ redirectToAddCoursePage: true })}
+                >
+                    Add Course
+                </button>
+            </section>
 
             <table>
                 <thead>
@@ -67,7 +82,7 @@ const CoursesPage: React.FC<Props> = props => {
                     ))}
                 </tbody>
             </table>
-        </section>
+        </>
     );
 };
 
